@@ -116,7 +116,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../pics/hero-section-bg-min.jpg'); /* Путь к вашему изображению */
+    background-image: url('../pics/hero-section-bg.jpg'); /* Путь к вашему изображению */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
