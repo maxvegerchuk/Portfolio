@@ -705,3 +705,15 @@ footer {
     color: #999999;
     font-weight: 400;
 }
+
+.bulleted-list {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 14px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 500;
+    max-width: 550px;
+}
+
+.bulleted-list li {
+    padding-top: 8px;
+}
