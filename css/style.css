@@ -1,0 +1,743 @@
+html {
+    scroll-behavior: smooth; /* Плавный скроллинг */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 32px; /* Установите размер шрифта */
+    color: white; /* Установите цвет текста */
+    margin-bottom: 8px !important; /* Установите отступ снизу */ 
+    font-weight: 800;
+    text-align: left;
+}
+h2 {
+    font-weight: 600;
+    text-align: left;
+}
+
+header {
+    height: 64px; /* 8 * 8px */
+    border-bottom: 1px solid #DEDEDE;
+    position: fixed; /* Фиксированное положение */
+    top: 0; /* Привязка к верхней части экрана */
+    left: 0; /* Привязка к левой части экрана */
+    width: 100%; /* Ширина 100% */
+    background-color: white; /* Фон для навигации */
+    z-index: 1000; /* Убедитесь, что навигация выше других элементов */
+    
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: calc(100% - 240px); /* 120px с каждой стороны (15 * 8px) */
+    margin: 0 auto; /* Центрирование */
+    padding: 0;
+}
+
+@media (max-width: 430px) {
+    nav {
+        max-width: calc(100% - 24px);
+    }
+}
+
+
+@media (max-width: 430px) {
+    .portfolio-section {
+        max-width: 100%;
+        padding: 0 24px;
+    }
+}
+
+.hero-description {
+    margin-top: 16px !important; /* Убираем верхний отступ для параграфа */
+    margin-bottom: 8px; /* Устанавливаем отступ снизу для параграфа, если нужно */
+    color: white !important;
+    font-size: 16px !important;
+    max-width: 488px;
+    text-align: left;
+
+}
+
+.regular-font14 {
+    margin-top: 0; /* Убираем верхний отступ для параграфа */
+    margin-bottom: 8px; /* Устанавливаем отступ снизу для параграфа, если нужно */
+    color: #727272;
+    font-size: 14px; 
+}
+
+
+.nav-logo {
+    width: 136px; /* 17 * 8px */
+    height: 32px; /* 4 * 8px */
+}
+
+.nav-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 32px; /* 4 * 8px */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links .nav-resume-btn {
+    background-color: #116AF0;
+    color: white; /* Убедимся, что цвет текста белый */
+    padding: 0 24px; /* 3 * 8px */
+    border-radius: 4px;
+    height: 48px; /* 6 * 8px */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Изменено с space-between на center */
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 14px; /* Добавлено для лучшего размещения текста */
+    font-weight: 600; /* SemiBold */
+}
+
+.nav-links .nav-resume-btn:hover {
+    box-shadow: 0 4px 8px rgba(17, 106, 240, 0.35);
+}
+
+.nav-links .nav-resume-btn .nav-resume-icon {
+    width: 16px; /* 2 * 8px */
+    height: 16px; /* 2 * 8px */
+    margin-left: 8px; /* 1 * 8px */
+}
+
+main {
+    padding: 16px; /* 2 * 8px */
+    max-width: calc(100% - 240px); /* 120px с каждой стороны (15 * 8px) */
+    margin: 0 auto; /* Центрирование */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 16px; /* 2 * 8px */
+}
+
+.nav-links .resume-btn {
+    color: white !important;
+}
+
+/* Минимальные стили для Hero Section */
+.hero-section {
+    height: calc(90vh - 64px); /* Высота Hero Section */
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background-image: url('../pics/hero-section-bg-min.jpg');
+    background-size: cover;
+    /* background-size: contain; */
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-section-logo img {
+    width: 100%; /* Логотип не выйдет за пределы контейнера */
+    height: auto; /* Пропорциональная высота */
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-link-btn {
+    text-decoration: none;
+    color: #116AF0;
+    font-size: 14px; /* Добавлено для лучшего размещения текста */
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link-btn {
+    width: 16px; /* Ширина иконки */
+    height: 16px; /* Высота иконки */
+    margin-left: 8px; /* Отступ слева от иконки */
+}
+
+.hero-profession-title {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 24px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    margin-bottom: 16px; /* Установите отступ снизу */
+    text-transform: uppercase; /* Преобразует текст в заглавные буквы */
+    letter-spacing: 0.2em; 
+    font-weight: 600;
+}
+
+.portfolio-section {
+    max-width: 1200px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование */
+    text-align: center; /* Центрирование текста */
+}
+
+.portfolio-section h2 {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 18px; /* Установите размер шрифта */
+    color: #333;
+    margin-bottom: 0px;
+}
+
+.portfolio-section p {
+    margin-top: 0; /* Убираем верхний отступ для параграфа */
+    margin-bottom: 8px; /* Устанавливаем отступ снизу для параграфа, если нужно */
+    color: #727272;
+    font-size: 14px;
+}
+
+.portfolio-title {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 24px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    text-transform: uppercase; /* Преобразует текст в заглавные буквы */
+    font-weight: 600;
+    text-align: center;
+}
+
+.portfolio-container {
+    display: flex; /* Используем flexbox для горизонтального расположения */
+    justify-content: space-between; /* Центрируем элементы */
+    flex-wrap: wrap; /* Позволяем переносить элементы на новую строку при необходимости */
+    gap: 16px; /* Расстояние между блоками */
+    margin-top: 24px;
+}
+
+.portfolio-item {
+    flex: 1 1 30%; /* Заставляем элементы занимать равное пространство */
+    min-width: 200px; /* Минимальная ширина для каждого элемента */
+    border-radius: 4px;
+    flex: 1; /* Заставляем элементы занимать равное пространство */
+    min-width: 200px; /* Минимальная ширина для каждого элемента */
+    text-align: left; /* Выровнять текст по левому краю */
+    cursor: pointer; /* Указываем, что элемент кликабельный */
+    
+   
+}
+
+@media (max-width: 430px) {
+    .portfolio-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    .portfolio-item {
+        flex: 1 1 100%; /* Элементы занимают 100% ширины контейнера */
+    }
+}
+
+@media (max-width: 430px) {
+    .flex-wrap {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+@media (max-width: 430px) {
+    .project-info {
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 430px) {
+    a {
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 430px) {
+    li {
+        line-height: 1;
+    }
+}
+
+
+.portfolio-image img {
+    width: 100%; /* Ширина изображения 100% от родительского блока */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    border-radius: 4px;
+}
+
+
+
+.project-title {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт Poppins */
+    font-size: 16px; /* Установите размер шрифта */
+    font-weight: 600; /* Установите вес шрифта на Semibold */
+    margin-top: 4px; /* Отступ сверху для заголовка проекта */
+    text-decoration: none;
+    text-align: left; /* Выровнять текст по левому краю */
+}
+
+.project-link {
+    text-decoration: none;
+    color: #333333;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-6px); /* Поднимаем иконку вверх */
+    }
+    40% {
+        transform: translateY(-4px); /* Немного опускаем иконку */
+    }
+    60% {
+        transform: translateY(-2px); /* Еще немного опускаем иконку */
+    }
+}
+
+.nav-links .nav-resume-btn:hover .nav-resume-icon {
+    animation: bounce 0.5s infinite; /* Применяем анимацию при наведении */
+}
+
+.project-header {
+    width: 100%; /* Ширина блока 100% */
+    max-width: 1000px; /* Максимальная ширина блока */
+    height: 300px; /* Высота блока */
+    overflow: hidden; /* Скрыть переполнение */
+    margin: 0 auto; /* Центрирование блока */
+    padding-top: 40px; /* Отступ сверху, равный высоте навигации */
+}
+
+.project-image {
+    width: 100%; /* Ширина изображения 100% от родительского блока */
+    height: 100%; /* Высота изображения 100% от родительского блока */
+    object-fit: cover; /* Сохранение пропорций изображения */
+}
+
+.project-section {
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+
+}
+
+@media (max-width: 430px) {
+    .project-section {
+        max-width: 100%;
+        padding: 0 24px;
+    }
+
+}
+
+.project-section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #333;
+    margin-bottom: 0px;
+}
+
+.project-section p {
+    margin-top: 0; /* Убираем верхний отступ для параграфа */
+    margin-bottom: 8px; /* Устанавливаем отступ снизу для параграфа, если нужно */
+    color: #727272;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    max-width: 600px;
+}
+
+.project-content {
+    display: flex; /* Используем flexbox для колонок */
+    max-width: 1000px; /* Максимальная ширина блока */
+    margin: 0 auto; /* Центрирование блока */
+    align-items: center;
+}
+
+.text-column {
+    flex: 1; /* Занимает равное пространство */
+    padding-right: 56px; /* Отступ справа для разделения */
+}
+
+.text-column h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 0px;
+}
+.text-column p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #727272;
+    margin-bottom: 16px;
+    max-width: 550px;
+}
+
+.image-column {
+    flex: 1; /* Занимает равное пространство */
+}
+
+.detail-image {
+    width: 100%; /* Ширина изображения 100% от родительского блока */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    object-fit: contain;
+}
+.project-info {
+    margin-top: 24px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-info-box {
+    width: 30%; /* Ширина каждого блока */
+    min-width: 200px;
+    /* padding: 20px; Внутренние отступы */
+    margin-right: 16px;
+    display: flex; /* Используем flexbox для вертикального расположения текста */
+    flex-direction: column; /* Вертикальное расположение текста */
+    align-items: flex-start; /* Выравнивание текста по левому краю */
+}
+
+.bold-text {
+    font-weight: 600;
+    color: #333 !important;
+}
+
+.box p {
+    margin: 0; /* Убираем отступы у параграфов */
+}
+
+.project-content-text-only {
+    max-width: 1000px; /* Максимальная ширина блока */
+    margin: 0 auto; /* Центрирование блока */
+    align-items: top;
+}
+
+.project-phase-title {
+    width: 100%;
+    max-width: 1000px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование */
+    padding: 56px 0px; /* Отступы */
+    text-align: center; /* Центрирование текста */
+}
+
+.bio-service-title {
+    width: 100%;
+    max-width: 1000px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование */
+    padding: 32px 0  24px 0px; /* Отступы */
+    text-align: center; /* Центрирование текста */
+}
+
+.project-phase-title h2 {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 24px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    text-transform: uppercase; /* Преобразует текст в заглавные буквы */
+    font-weight: 600;
+    margin-bottom: 0px;
+    text-align: center; /* Центрирование текста */     
+}
+
+.project-phase-title p {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 14px; /* Установите размер шрифта */
+    color: #727272; /* Установите цвет текста */
+    margin-bottom: 8px; /* Установите отступ снизу для параграфа, если нужно */
+    margin-top: 0px;
+    margin: 0 auto; /* Центрирование */
+}
+
+.project-pretitle {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 16px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 500;
+    margin-top: 56px;
+    margin-bottom: 16px;
+}
+
+.project-pretitle-small-padding {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 16px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.slider {
+    position: relative;
+    max-width: 1000px; /* Максимальная ширина слайдера */
+    height: 400px;
+    margin: auto; /* Центрирование слайдера */
+    overflow: hidden; /* Скрыть переполнение */
+}
+
+.slides {
+    display: flex; /* Используем flexbox для горизонтального расположения слайдов */
+    transition: transform 0.5s ease; /* Плавный переход между слайдами */
+}
+
+.slide {
+    min-width: 100%; /* Каждый слайд занимает 100% ширины слайдера */
+}
+
+.slide img {
+    width: 100%; /* Изображение занимает всю ширину слайда */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.prev {
+    left: 10px; /* Положение кнопки "Назад" */
+}
+
+.next {
+    right: 10px; /* Положение кнопки "Вперед" */
+}
+
+.mobile-screen {
+    width: 205px; /* Ширина контейнера */
+    height: 445px; /* Высота контейнера */
+    border-radius: 8px; /* Закругление углов */
+    overflow: hidden; /* Скрыть переполнение */
+    margin: 0 auto;
+}
+
+.bold-text-percent {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 32px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    text-transform: uppercase;
+    font-weight: 800;
+    
+}
+
+.sub-tittle {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 14px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-text-block {
+    flex: 1; 
+    min-width: 400px;
+    max-width: 100%;
+    padding: 0; /* Убираем паддинги */
+    margin-bottom: 24px;
+    text-align: left; /* Выравнивание текста по левому краю */
+    vertical-align: top; /* Выравнивание по верхнему краю (для таблиц и inline-block элементов) */
+    display: flex; /* Используем flexbox для вертикального выравнивания */
+    box-sizing: border-box;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: flex-start; /* Выравнивание по верхнему краю */
+}
+
+.flex-text-block p {
+    padding: 0 40px 0 0; /* Убираем паддинги */
+}
+
+
+.padding-24 {
+    padding: 0 24px; /* Убираем паддинги */ 
+}
+
+.padding-top24 {
+    padding-top: 24px;
+}
+
+.margin-bot80 {
+    margin-bottom: 80px;
+}
+
+.margin-bot40 {
+    margin-bottom: 40px;
+}
+
+.margin-right40 {
+    margin-right: 40px;
+}
+
+
+
+.small-title {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 16px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 500;
+}
+
+@media (max-width: 430px) {
+    .flex-text-block {
+        flex-basis: 100%; /* Блоки занимают 100% ширины при уменьшении экрана */
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-section-logo {
+        max-width: 80%; /* Устанавливаем ширину логотипа на 80% */
+        margin: 0 auto;
+    }
+}
+
+
+footer {
+    display: flex; /* Используем flexbox для выравнивания */
+    justify-content: center; /* Центрируем содержимое */
+    align-items: center; /* Выравниваем по вертикали */
+    padding: 16px 24px; /* Внутренние отступы */
+    background-color: #333; /* Цвет фона футера */
+    width: 100%;
+}
+
+@media (max-width: 430px) {
+    footer {
+        display: flex; /* Используем flexbox для выравнивания */
+        justify-content: center; /* Центрируем содержимое */
+        align-items: center; /* Выравниваем по вертикали */
+        padding: 16px 0; /* Внутренние отступы */
+        background-color: #333; /* Цвет фона футера */
+        width: 100%;
+    }
+}
+
+.icon {
+    margin: 0 10px; /* Отступы между иконками */
+    font-size: 16px; /* Размер иконок */
+    color: #fff; /* Цвет иконок */
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    display: flex; /* Используем flexbox для выравнивания */
+    justify-content: center; /* Центрируем содержимое футера */
+    align-items: center; /* Выравниваем по вертикали */
+}
+
+.email {
+    font-size: 14px; /* Размер текста email */
+    color: #fff; /* Цвет текста email */
+    text-decoration: none;
+}
+
+.bio-title-name {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 32px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 800;
+    text-transform: uppercase;
+
+}
+
+.bio-pretitle {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 16px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 600;
+}
+
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.service {
+    flex: 1;
+    margin: 24px 24px;
+    text-align: center;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+}
+
+.service-icon {
+    font-size: 32px;
+}
+
+.service-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.small-bold {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.service-description {
+    font-size: 12px;
+    color: #999999;
+    font-weight: 400;
+}
+
+.bulleted-list {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 14px; /* Установите размер шрифта */
+    color: #333; /* Установите цвет текста */
+    font-weight: 500;
+    max-width: 550px;
+}
+
+.bulleted-list li {
+    padding-top: 8px;
+}
