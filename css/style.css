@@ -9,6 +9,19 @@ body {
     padding: 0;
 }
 
+h1 {
+    font-family: 'Poppins', sans-serif; /* Установите шрифт */
+    font-size: 32px; /* Установите размер шрифта */
+    color: white; /* Установите цвет текста */
+    margin-bottom: 8px !important; /* Установите отступ снизу */ 
+    font-weight: 800;
+    text-align: left;
+}
+h2 {
+    font-weight: 600;
+    text-align: left;
+}
+
 header {
     height: 64px; /* 8 * 8px */
     border-bottom: 1px solid #DEDEDE;
@@ -43,6 +56,16 @@ nav {
         max-width: 100%;
         padding: 0 24px;
     }
+}
+
+.hero-description {
+    margin-top: 16px !important; /* Убираем верхний отступ для параграфа */
+    margin-bottom: 8px; /* Устанавливаем отступ снизу для параграфа, если нужно */
+    color: white !important;
+    font-size: 16px !important;
+    max-width: 488px;
+    text-align: left;
+
 }
 
 .regular-font14 {
@@ -127,12 +150,14 @@ footer {
 
 /* Минимальные стили для Hero Section */
 .hero-section {
-    height: calc(100vh - 64px); /* Высота Hero Section */
+    height: calc(90vh - 64px); /* Высота Hero Section */
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-image: url('../pics/hero-section-bg-min.jpg'); /* Путь к вашему изображению */
+    text-align: left;
+    background-image: url('../pics/hero-section-bg-min.jpg');
     background-size: cover;
+    /* background-size: contain; */
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -198,6 +223,7 @@ footer {
     color: #333; /* Установите цвет текста */
     text-transform: uppercase; /* Преобразует текст в заглавные буквы */
     font-weight: 600;
+    text-align: center;
 }
 
 .portfolio-container {
@@ -216,9 +242,7 @@ footer {
     min-width: 200px; /* Минимальная ширина для каждого элемента */
     text-align: left; /* Выровнять текст по левому краю */
     cursor: pointer; /* Указываем, что элемент кликабельный */
-    opacity: 0; /* Начальная прозрачность */
-    transform: translateY(20px); /* Начальное смещение вниз */
-    transition: opacity 0.8s ease, transform 0.8s ease; /* Плавный переход */
+    
    
 }
 
