@@ -742,3 +742,9 @@ footer {
 .bulleted-list li {
     padding-top: 8px;
 }
+
+@media (max-width: 500px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
