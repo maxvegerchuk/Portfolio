@@ -8,6 +8,98 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+@media (max-width: 1024px) {
+  .hero-top-icon {
+    width: 310px;
+    height: auto;
+  }
+  .hero-bottom-row {
+    gap: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Скрываем ненужные блоки */
+  .vertical-text-left,
+  .vertical-text-right,
+  .hero-text-content {
+    display: none;
+  }
+
+  /* Уменьшаем внутреннюю обёртку */
+  .hero-inner {
+    max-width: 100%;
+    padding: 0 12px;
+    margin: 0 auto;
+  }
+
+  /* Уменьшаем SVG-иконку */
+  .hero-top-icon {
+    width: 80px;
+    height: auto;
+  }
+
+  /* Кнопки меньше */
+  .hero-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  /* Если кнопки расположены в ряд — выстраиваем в колонку */
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start; /* или center, если хочешь по центру */
+  }
+
+  /* Дополнительно — уменьшаем отступы между рядами */
+  .hero-top-row,
+  .hero-bottom-row {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  /* Уменьшаем верхнюю иконку */
+  .hero-top-icon {
+    width: 210px;
+    height: auto;
+  }
+
+  /* Делаем кнопки компактнее */
+  .hero-button {
+    padding: 8px 14px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+  .hero-button.primary {
+    background-color: white;
+    color: #C57C93;
+    border: none;
+    width: 150px;
+  }
+  
+  .hero-button.secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    width: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-top-icon {
+    width: 210px;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 a {
   color: #80bfff;
   text-decoration: none;
@@ -50,7 +142,7 @@ html, body {
 }
 
 .header .logo {
-  color: #e0e0e0;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 700;
   margin: 0;
@@ -68,7 +160,7 @@ html, body {
 
 nav {
   display: flex;
-  gap: 20px;
+  gap: 16px;
 }
 
 nav a {
@@ -123,13 +215,13 @@ nav a:hover {
 .vertical-text-left {
   left: 0;
   writing-mode: vertical-lr;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
 .vertical-text-right {
   right: 0;
   writing-mode: vertical-rl;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 
@@ -182,7 +274,7 @@ nav a:hover {
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 40px;
   box-sizing: border-box;
   pointer-events: none; /* чтобы блок не мешал кликам */
 }
@@ -195,8 +287,8 @@ nav a:hover {
 }
 
 .hero-icons img {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   display: block;
 }
 
@@ -255,6 +347,13 @@ nav a:hover {
   justify-content: space-between;
   align-items: flex-start;
   gap: 100px;
+  margin: 0 10px;
+}
+@media (max-width: 1024px) {
+  .hero-bottom-row {
+    gap: 30px;
+    margin-left: 0;
+  }
 }
 
 .hero-inner {
@@ -314,27 +413,20 @@ nav a:hover {
 
 .hero-heading {
   font-size: 37px;
-  line-height: 44px;
+  line-height: 39px;
   color: #fff;
   font-weight: 400;
   margin: 0;
   width: 350px;
 }
 
-.hero-floating-icon {
-  position: absolute;
-  right: 0;
-  top: -55px; 
-  right: -55px;         /* на 8px выше заголовка */
-  width: 48px;
-  height: 48px;
-}
 
 .hero-subtext {
   font-size: 16px;
-  line-height: 30px;
+  line-height: 22px;
   color: #fff;
   font-weight: 300; /* Light */
+  margin: 4px 0;
 }
 /* ========== Portfolio Card Styles ========== */
 .portfolio-grid {
@@ -521,10 +613,26 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-/*   max-width: 1440px; /* Ограничиваем максимальную ширину */ */
+  /* max-width: 1440px; Ограничиваем максимальную ширину */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
   box-sizing: border-box; /* Это поможет не выходить за пределы */
+}
+
+@media (max-width: 320px) {
+  .header-container {
+    padding: 0 16px;
+  }
+  .hero-icons {
+    padding: 0 24px;
+  }
+  .hero-inner {
+    padding: 0;
+  }
+  .contact-form {
+    margin: 0 24px;
+  }
+
 }
 
 .skills-grid {
