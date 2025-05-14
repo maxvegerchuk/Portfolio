@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Max Vegercguk UX/UI Designer</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+        <a href="#" class="logo">
+            <img src="pics/logo-white.svg" alt="Logo" style="height: 24px; width: auto;" />
+        </a>
+      <nav>
+        <a href="#portfolio" class="px-16">Projects</a>
+        <a href="#contact" class="px-16">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-section">
+        <div class="vertical-text-left">From strategy to pixels</div>
+        <div class="vertical-text-right">Elegant, functional, and accessible digital products</div>
+      </div>
+      <div class="hero-icons">
+        <div class="hero-icons-left">
+          <img src="pics/icons/linkedin.svg"  alt="Icon 1" />
+          <img src="pics/icons/instagram.svg" alt="Icon 2" />
+        </div>
+        <div class="hero-icons-right">
+          <img src="pics/icons/figma.svg" alt="Icon 3" />
+          <img src="pics/icons/adobe.svg" alt="Icon 4" />
+        </div>
+      </div>
+
+      <div class="hero-center-block">
+        <!-- Обёртка с ограничением ширины -->
+        <div class="hero-inner">
+      
+          <!-- Верхний ряд: иконка -->
+          <div class="hero-top-row">
+            <img src="pics/icons/hero-section-uxui.svg" alt="Decorative Icon" class="hero-top-icon" />
+          </div>
+      
+          <!-- Нижний ряд -->
+          <div class="hero-bottom-row">
+            
+            <!-- Левая часть: кнопки -->
+            <div class="hero-buttons">
+              <a href="#contact" class="hero-button secondary">Get in Touch</a>
+              <a href="#portfolio" class="hero-button primary">View My Work</a>
+            </div>
+      
+            <!-- Правая часть: текст -->
+            <div class="hero-text-content">
+                <div class="hero-heading-wrapper">
+                  <h1 class="hero-heading">Crafting delightful user experiences</h1>
+                  <img src="pics/icons/comment.svg" alt="Icon" class="hero-floating-icon" />
+                </div>
+              
+                <p class="hero-subtext">
+                  Helping businesses grow through smart design and thoughtful user journeys.
+                </p>
+              </div>
+      
+          </div> <!-- конец .hero-bottom-row -->
+      
+        </div> <!-- конец .hero-inner -->
+      </div> <!-- конец .hero-center-block -->
+      
+</section>
+  
+
+  <!-- Portfolio -->
+<section id="portfolio" class="container py-40">
+    <h2 class="section-title">My Projects</h2>
+    <div class="portfolio-grid">
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="pics/portfolio/travellizy/cover.png" alt="Project Image" class="project-image" />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Optimizing signup experience for a travel platform</h3>
+          <p class="project-description">Simplified signup to boost conversions</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="pics/portfolio/carforce/cover.png" alt="Project Image" class="project-image" />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Enhancing auto parts sales</h3>
+          <p class="project-description">Transforming sales strategy to optimize profitability and growth.</p>
+        </div>
+      </div>
+      <!-- Additional project cards here -->
+    </div>
+</section>
+  
+  
+  
+
+  <!-- Skills Section -->
+<section class="container py-40" id="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <!-- UX Design Icon -->
+        <img src="pics/icons/bar-chart.svg" alt="UX Design" class="skill-icon" />
+        <div class="skill-text">
+          <h3 class="skill-title">UX Design</h3>
+          <p>Research, user flows, wireframes, and creating seamless user experiences.</p>
+        </div>
+      </div>
+      <div class="skill-card">
+        <!-- UI Design Icon -->
+        <img src="pics/icons/monitor.svg" alt="UI Design" class="skill-icon" />
+        <div class="skill-text">
+          <h3 class="skill-title">UI Design</h3>
+          <p>Crafting clean and visually engaging interfaces with accessibility in mind.</p>
+        </div>
+      </div>
+      <div class="skill-card">
+        <!-- Prototyping Icon -->
+        <img src="pics/icons/layers.svg" alt="Prototyping" class="skill-icon" />
+        <div class="skill-text">
+          <h3 class="skill-title">Prototyping</h3>
+          <p>Interactive mockups to test usability and validate ideas early on.</p>
+        </div>
+      </div>
+      <div class="skill-card">
+        <!-- Design Tools Icon -->
+        <img src="pics/icons/tool.svg" alt="Design Tools" class="skill-icon" />
+        <div class="skill-text">
+          <h3 class="skill-title">Design Tools</h3>
+          <p>Figma, Sketch, Adobe XD, Photoshop, Illustrator, and more.</p>
+        </div>
+      </div>
+    </div>
+</section>
+
+  
+
+  <!-- Contact Form -->
+  <section id="contact">
+    <h2 class="section-title">Get in touch</h2>
+
+    <div id="success-message" class="popup hidden">
+        Your message has been sent successfully!
+      </div>
+
+    <form
+      action="https://formspree.io/f/myzwbjod"
+      method="POST"
+      class="contact-form"
+    >
+      <div class="input-group">
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+  
+      <div class="input-group">
+        <label for="message">Your Message</label>
+        <textarea name="message" id="message" rows="6" required></textarea>
+      </div>
+  
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container flex justify-between items-center">
+      <p>© 2025 Max Vegerchuk</p>
+      <p><a href="mailto:max.vegerchuk@gmail.com">max.vegerchuk@gmail.com</a></p>
+    </div>
+  </footer>
+
+
+<script>
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.reset();
+      successMessage.classList.remove('hidden');
+      setTimeout(() => {
+        successMessage.classList.add('hidden');
+      }, 4000);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  });
+</script>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
