@@ -7,9 +7,6 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
-html {
-  scroll-behavior: smooth;
-}
 
 a {
   color: #80bfff;
@@ -37,13 +34,13 @@ html, body {
 
 /* ========== Header ========== */
 .header {
-  width: 100%;
-  padding: 20px 40px;
-  position: fixed; /* если ты хочешь, чтобы хедер был всегда наверху */
-  top: 0;
-  left: 0;
-  background-color: #000; /* или любой фон */
+  position: fixed;
+  width: 100%; /* Уменьшаем ширину на 40px (по 20px с каждой стороны) */
+  padding: 24px 0; /* Отступы сверху и снизу оставляем прежними */
+  background-color: transparent;
+  border-bottom: none;
   z-index: 1000;
+  margin: 0; /* Убирает внешние отступы */
 }
 
 .header nav a {
@@ -523,9 +520,11 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1440px;
-  margin: 0 auto;
   width: 100%;
+  max-width: 1440px; /* Ограничиваем максимальную ширину */
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; /* Это поможет не выходить за пределы */
 }
 
 .skills-grid {
