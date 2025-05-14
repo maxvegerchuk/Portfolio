@@ -521,7 +521,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1440px; /* Ограничиваем максимальную ширину */
+/*   max-width: 1440px; /* Ограничиваем максимальную ширину */ */
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; /* Это поможет не выходить за пределы */
