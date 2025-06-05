@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UX/UI Max Vegerchuk</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ========== Header ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="pics/logo-white.svg" alt="Logo" height="20" />
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="#portfolio" class="header-link">Projects</a>
+        <a href="#contact" class="header-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== Main Container ========== -->
+  <main class="main-container">
+    <!-- ========== Hero Section ========== -->
+    <section class="hero-section" id="hero">
+      <div class="vertical-text-container">
+        <div class="vertical-text left">elegant, functional, and accessible digital products</div>
+        <div class="vertical-text right">from strategy to pixels</div>
+      </div>
+      <div class="hero-content-block">
+        <div class="hero-image">
+          <img src="pics/hero-img.svg" alt="Hero Image" />
+        </div>
+        <div class="hero-description">
+          <span class="hero-description-text">
+            Crafting delightful user experiences and helping businesses grow through.
+          </span>
+        </div>
+      </div>
+      <div class="hero-bottom-text">
+        <div class="bottom-text left">LISBON</div>
+        <div class="scroll-down-block">
+          <img src="pics/icons/scroll-down.svg" alt="Scroll down" class="scroll-down-icon">
+          <span class="scroll-down-text">Scroll down</span>
+        </div>
+        <div class="bottom-text right">©2025</div>
+      </div>
+    </section>
+
+    <!-- ========== First Project ========== -->
+    <section class="project-section" id="portfolio">
+      <article class="portfolio-project">
+        <div class="project-text-block">
+          <a href="pages/travellizy.html" class="project-title-link">
+            <h5 class="project-title">Travel platform login & signup upgrade</h5>
+          </a>
+          <p class="project-description">
+            Streamlined signup and login process for Travellizy, a travel platform, boosting user engagement with a seamless, intuitive experience.
+          </p>
+          <div class="project-tags">
+            <span class="tag">UX Design</span>
+            <span class="tag">UI Design</span>
+            <span class="tag">Product Design</span>
+            <span class="tag">User Research</span>
+          </div>
+        </div>
+        <div class="project-visual-block">
+          <a href="pages/travellizy.html" class="project-title-link">
+            <div class="project-image-placeholder">
+              <img src="pics/travellizy/cover.png" alt="Project Image" class="project-image-placeholder">
+            </div>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========== Second Project ========== -->
+    <section class="project-section" id="project2">
+      <article class="portfolio-project">
+        <div class="project-text-block">
+          <a href="pages/carforce.html" class="project-title-link">
+            <h5 class="project-title">Enhancing auto parts sales</h5>
+          </a>
+          <p class="project-description">
+            CarForce is an online platform designed to streamline auto parts sales, boost customer engagement, and optimize inventory while reducing third-party dependency.
+          </p>
+          <div class="project-tags">
+            <span class="tag">UX Design</span>
+            <span class="tag">UI Design</span>
+            <span class="tag">Research</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Responsive</span>
+          </div>
+        </div>
+        <div class="project-visual-block">
+          <a href="pages/carforce.html" class="project-title-link">
+            <div class="project-image-placeholder">
+              <img src="pics/carforce/cover.png" alt="Project Image" class="project-image-placeholder">
+            </div>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========== Contact Section ========== -->
+    <section class="contact-section contact-section-vertical" id="contact">
+      <div class="contact-gray-block main contact-block-stretched">
+        <div class="contact-blocks-wrapper">
+          <div class="contact-block left">
+            <h5 class="contact-title">Contact</h5>
+          </div>
+          <div class="contact-block right">
+            <h2 class="contact-description">
+              Let's build your dream project together
+            </h2>
+            <form class="contact-form">
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <textarea id="message" name="message" placeholder="Message" required></textarea>
+              </div>
+              <button type="submit" class="submit-button">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Section Navigation ========== -->
+  <nav class="section-navigation">
+    <div class="nav-dots">
+      <button class="nav-dot" data-section="hero" aria-label="Go to Hero section"></button>
+      <button class="nav-dot" data-section="portfolio" aria-label="Go to Portfolio section"></button>
+      <button class="nav-dot" data-section="project2" aria-label="Go to Second Project section"></button>
+      <button class="nav-dot" data-section="contact" aria-label="Go to Contact section"></button>
+    </div>
+  </nav>
+
+  <!-- ========== Footer Section ========== -->
+  <footer class="site-footer main-page-footer">
+    <div class="footer-container">
+      <div class="footer-block footer-logo-block">
+        <a href="index.html" class="footer-logo">
+          <img src="pics/logo-white.svg" alt="Company Logo" title="Company Logo" height="20" />
+        </a>
+      </div>
+      <div class="footer-block footer-contact-block">
+        <a href="https://www.linkedin.com/in/maxvegerchuk/" class="footer-social" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
+          <span class="social-name">LinkedIn</span>
+          <span class="social-link">maxvegerchuk</span>
+        </a>
+      </div>
+      <div class="footer-block footer-copy-block">
+        <p class="footer-copyright">©2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
