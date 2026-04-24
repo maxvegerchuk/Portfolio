@@ -421,13 +421,14 @@
     }
     .proj-feature-img.full img {
       width: 100%;
+      max-width: none;
       height: 100%;
       object-fit: cover;
       object-position: top;
     }
 
     /* ── FINAL DESIGN ──────────────────────────────────────────── */
-    .proj-final { padding: 0 var(--pad); margin-top: 3px; }
+    .proj-final { padding: 0 var(--pad); margin-top: 80px; }
     .proj-final-header {
       display: flex;
       align-items: baseline;
@@ -435,10 +436,12 @@
       padding: 0 0 20px;
     }
     .proj-final-tag {
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      color: var(--p);
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(13px, 1.4vw, 18px);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--y);
     }
     .proj-final-desc {
       font-family: var(--mono);
