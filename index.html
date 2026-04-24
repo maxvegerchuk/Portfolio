@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Max Vegerchuk — UX/UI Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <style>
+    /* ── ABOUT ─────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 300px minmax(auto, 560px);
+      gap: 72px;
+      align-items: start;
+    }
+    .about-greeting {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(22px, 2.6vw, 34px);
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .about-greeting-hello { display: block; color: var(--p); font-size: 18px; }
+    .about-greeting-name  { display: block; color: var(--text); }
+    .about-body {
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .about-body p { margin-bottom: 16px; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .about-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      border: 1px solid var(--border-y);
+      padding: 6px 14px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%);
+      white-space: nowrap;
+    }
+    .about-photo {
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, 0 100%);
+    }
+    .about-photo img {
+      width: 100%;
+      display: block;
+    }
+    .about-photo::before,
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/profile.png') top center / 100% auto no-repeat;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .about-photo::before {
+      filter: hue-rotate(50deg) saturate(4);
+      mix-blend-mode: screen;
+      animation: img-gx-a 7s infinite;
+    }
+    .about-photo::after {
+      filter: hue-rotate(300deg) saturate(4);
+      mix-blend-mode: screen;
+      animation: img-gx-b 7s infinite;
+      animation-delay: 0.4s;
+    }
+    @keyframes img-gx-a {
+      0%,87%,100% { opacity:0; clip-path:inset(50% 0 50% 0); transform:translate(0); }
+      88% { opacity:.85; clip-path:inset(13% 0 58% 0); transform:translate(-6px, 1px); }
+      89% { opacity:.85; clip-path:inset(63% 0  8% 0); transform:translate( 6px,-2px); }
+      90% { opacity:.85; clip-path:inset(28% 0 43% 0); transform:translate(-5px,  0); }
+      91% { opacity:.85; clip-path:inset(77% 0  3% 0); transform:translate( 7px, 1px); }
+      92% { opacity:0;   clip-path:inset(50% 0 50% 0); transform:translate(0); }
+    }
+    @keyframes img-gx-b {
+      0%,83%,100% { opacity:0; clip-path:inset(50% 0 50% 0); transform:translate(0); }
+      84% { opacity:.75; clip-path:inset(70% 0  5% 0); transform:translate( 7px,-1px); }
+      85% { opacity:.75; clip-path:inset(10% 0 64% 0); transform:translate(-7px, 2px); }
+      86% { opacity:.75; clip-path:inset(38% 0 38% 0); transform:translate( 5px,-1px); }
+      87% { opacity:.75; clip-path:inset(52% 0 17% 0); transform:translate(-6px,  0); }
+      88% { opacity:0;   clip-path:inset(50% 0 50% 0); transform:translate(0); }
+    }
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .about-photo { max-width: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header" id="header">
+    <a href="index.html" class="logo">
+      <span class="logo-first">MAX</span><span class="logo-dot">.</span><span class="logo-last">VGR</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="#portfolio" class="nav-link">PROJECTS</a>
+      <a href="#experience" class="nav-link">EXPERIENCE</a>
+      <a href="#contact" class="nav-link">CONTACT</a>
+    </nav>
+    <div class="header-status">
+      <span class="status-dot"></span>
+      <span>AVAILABLE</span>
+    </div>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+
+    <div class="hero-eyebrow">
+      <span>DESIGNER.EXE</span>
+      <span class="eyebrow-sep">—</span>
+      <span>UX · UI · PRODUCT</span>
+    </div>
+
+    <div class="hero-main">
+      <h1 class="hero-name">
+        <span class="glitch" data-text="MAX">MAX</span>
+        <span class="glitch hero-name-b" data-text="VEGERCHUK">VEGERCHUK</span>
+      </h1>
+      <p class="hero-desc">
+        I design meaningful digital experiences — grounded in&nbsp;research, built with intention.
+      </p>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-val">8<span class="stat-plus">+</span></span>
+          <span class="stat-key">YRS EXP</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val">20<span class="stat-plus">+</span></span>
+          <span class="stat-key">PROJECTS</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val">BRV</span>
+          <span class="stat-key">ROMANIA</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <span class="btn-ghost-wrap">
+          <a href="mailto:max.vegerchuk@gmail.com" class="btn-ghost">GET IN TOUCH</a>
+        </span>
+        <a href="#portfolio" class="btn-primary">ACCESS PORTFOLIO</a>
+      </div>
+    </div>
+
+    <div class="hero-ghost" aria-hidden="true">VEGERCHUK</div>
+    <div class="hazard-stripe" aria-hidden="true"></div>
+
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="portfolio" class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title glitch" data-text="PROJECTS">PROJECTS</h2>
+    </div>
+
+    <div class="projects">
+
+      <a href="evaryst.html" class="project-card reveal">
+        <div class="project-cover">
+          <img src="images/evaryst/cover.png" alt="Evaryst project">
+        </div>
+        <div class="project-info">
+          <span class="project-tag">ATS PLATFORM</span>
+          <h3 class="project-name">Evaryst</h3>
+          <p class="project-desc">Website for Applicant Tracking System</p>
+          <span class="project-cta">OPEN CASE <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="travellizy.html" class="project-card reveal">
+        <div class="project-cover">
+          <img src="images/travellizy/cover.png" alt="Travellizy project">
+        </div>
+        <div class="project-info">
+          <span class="project-tag">TRAVEL APP</span>
+          <h3 class="project-name">Travellizy</h3>
+          <p class="project-desc">Enhancing login &amp; signup experience</p>
+          <span class="project-cta">OPEN CASE <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="carforce.html" class="project-card reveal">
+        <div class="project-cover">
+          <img src="images/carforce/cover.png" alt="Carforce project">
+        </div>
+        <div class="project-info">
+          <span class="project-tag">E-COMMERCE</span>
+          <h3 class="project-name">Carforce</h3>
+          <p class="project-desc">Enhancing auto parts sales for business</p>
+          <span class="project-cta">OPEN CASE <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title glitch" data-text="ABOUT">ABOUT</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-photo">
+        <img src="images/profile.png" alt="Max Vegerchuk">
+      </div>
+      <div class="about-content">
+        <p class="about-greeting">
+          <span class="about-greeting-hello">Hello, I'm</span>
+          <span class="about-greeting-name">Max Vegerchuk</span>
+        </p>
+        <div class="about-body">
+          <p>A&nbsp;UX/UI Designer with 8+ years of&nbsp;experience helping startups and&nbsp;growing companies build digital products people actually enjoy using.</p>
+          <p>I work closely with product and&nbsp;engineering teams — turning research, data, and&nbsp;user insights into interfaces that are clear, well&#8209;crafted, and&nbsp;built to&nbsp;perform.</p>
+        </div>
+        <div class="about-tags">
+          <span class="about-tag">USER RESEARCH</span>
+          <span class="about-tag">INTERACTION DESIGN</span>
+          <span class="about-tag">PROTOTYPING</span>
+          <span class="about-tag">DESIGN SYSTEMS</span>
+          <span class="about-tag">USABILITY TESTING</span>
+          <span class="about-tag">FIGMA</span>
+          <span class="about-tag">CLAUDE</span>
+          <span class="about-tag">CURSOR</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section id="experience" class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title glitch" data-text="EXPERIENCE">EXPERIENCE</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="tl-year">2024—NOW</div>
+        <div class="tl-body">
+          <div class="tl-company">Arlensa</div>
+          <div class="tl-role">UX/UI DESIGNER</div>
+          <p class="tl-desc">Lead UX design for an innovative recruiting platform, introducing distinctive features that streamline hiring and differentiate it from traditional ATS systems.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="tl-year">2022—2023</div>
+        <div class="tl-body">
+          <div class="tl-company">
+            Found Fair Ventures GmbH
+            <a href="https://foundfair.de/" target="_blank" rel="noopener noreferrer" class="ext-link" aria-label="Visit website">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="tl-role">UX/UI DESIGNER</div>
+          <p class="tl-desc">Improved a mobile-first 2D/3D construction portal, reducing decision-making time by 17% with optimized navigation and workflows.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="tl-year">2018—2022</div>
+        <div class="tl-body">
+          <div class="tl-company">
+            Travellizy LP
+            <a href="https://travellizy.com" target="_blank" rel="noopener noreferrer" class="ext-link" aria-label="Visit website">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="tl-role">UX/UI DESIGNER</div>
+          <p class="tl-desc">Boosted conversions by 9%, increased retention by 11%, and contributed to&nbsp;Travellizy being named "Startup of&nbsp;the Year" by&nbsp;Amadeus.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER / CONTACT ═══ -->
+  <footer id="contact" class="footer">
+
+    <div class="footer-name-block reveal">
+      <div class="footer-big-name glitch" data-text="MAX VEGERCHUK">MAX VEGERCHUK</div>
+      <p class="footer-sub">UX/UI DESIGNER · BRAȘOV, ROMANIA</p>
+    </div>
+
+    <div class="footer-cols reveal">
+      <div class="footer-col">
+        <span class="footer-label">// CONTACT</span>
+        <a href="mailto:max.vegerchuk@gmail.com" class="footer-email">max.vegerchuk@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// NAVIGATE</span>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="#portfolio">Projects</a>
+          <a href="#experience">Experience</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// SOCIAL</span>
+        <nav class="footer-nav">
+          <a href="https://www.linkedin.com/in/maxvegerchuk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/max_vegerchuk" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 MAX VEGERCHUK</span>
+      <span class="footer-online">UX/UI DESIGN</span>
+    </div>
+
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile nav
+    const toggle = document.querySelector('.nav-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        header.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', header.classList.contains('nav-open'));
+      });
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.addEventListener('click', () => {
+          header.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

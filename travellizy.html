@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travellizy — Max Vegerchuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <style>
+    /* ── PROJECT PAGE ──────────────────────────────────────────── */
+    .proj-page { padding-top: 80px; }
+
+    /* ── PROJECT HERO ──────────────────────────────────────────── */
+    .proj-hero {
+      padding: 72px var(--pad) 64px;
+      border-bottom: 1px solid var(--border-y);
+      position: relative;
+    }
+    .proj-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 44px;
+      transition: color 0.2s;
+    }
+    .proj-back:hover { color: var(--y); }
+    .proj-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .proj-tag { color: var(--p); }
+    .proj-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(52px, 10vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .proj-desc {
+      font-family: var(--body);
+      font-size: clamp(15px, 1.2vw, 18px);
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 52px;
+    }
+    .proj-meta {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .proj-meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .proj-meta-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+    .proj-meta-val {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--y);
+    }
+
+    /* ── COVER ─────────────────────────────────────────────────── */
+    .proj-cover { padding: 0 var(--pad); }
+    .proj-cover img {
+      width: 100%;
+      display: block;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, 0 100%);
+    }
+
+    /* ── SHARED SECTION OVERRIDE ───────────────────────────────── */
+    .proj-section { padding: 80px var(--pad); }
+    .proj-section .section-head { margin-bottom: 48px; }
+
+    /* ── HIGHLIGHT ─────────────────────────────────────────────── */
+    .hl { color: var(--y); }
+
+    /* ── TEXT BLOCKS ───────────────────────────────────────────── */
+    .proj-block { max-width: 760px; }
+    .proj-lead {
+      font-family: var(--body);
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .proj-body {
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    /* ── SOLUTION CARDS ────────────────────────────────────────── */
+    .proj-sol-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 36px;
+      max-width: 760px;
+    }
+    .proj-sol-card {
+      background: var(--surface);
+      padding: 28px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+    }
+    .proj-sol-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--p);
+    }
+    .proj-sol-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--y);
+    }
+    .proj-sol-card p {
+      font-family: var(--body);
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── SCREENS ───────────────────────────────────────────────── */
+    .proj-screens {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-bottom: 3px;
+    }
+    .proj-screen {
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+    }
+    .proj-screen-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      padding: 14px 20px 12px;
+      border-bottom: 1px solid var(--border-y);
+    }
+    .proj-screen img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── IMPACT GRID ───────────────────────────────────────────── */
+    .proj-impact {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+    .proj-impact-card {
+      background: var(--surface);
+      padding: 32px 28px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .proj-impact-delta {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing: 0.04em;
+      color: var(--y);
+      line-height: 1;
+    }
+    .proj-impact-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .proj-impact-card p {
+      font-family: var(--body);
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── PROJECT NAV ───────────────────────────────────────────── */
+    .proj-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 56px var(--pad);
+      border-top: 1px solid var(--border-y);
+    }
+    .proj-nav-link {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .proj-nav-link.next { align-items: flex-end; }
+    .proj-nav-link:hover { opacity: 0.8; }
+    .proj-nav-dir {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .proj-nav-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(16px, 2.2vw, 28px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .proj-nav-link:hover .proj-nav-name { color: var(--y); }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .proj-sol-grid   { grid-template-columns: 1fr; }
+      .proj-screens    { grid-template-columns: 1fr; }
+      .proj-impact     { grid-template-columns: 1fr 1fr; }
+      .proj-meta       { gap: 28px; }
+      .proj-nav        { flex-direction: column; gap: 36px; align-items: flex-start; }
+      .proj-nav-link.next { align-items: flex-start; }
+    }
+    @media (max-width: 440px) {
+      .proj-hero    { padding: 56px var(--pad) 48px; }
+      .proj-section { padding: 56px var(--pad); }
+      .proj-impact  { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="proj-page">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header" id="header">
+    <a href="index.html" class="logo">
+      <span class="logo-first">MAX</span><span class="logo-dot">.</span><span class="logo-last">VGR</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="index.html#portfolio" class="nav-link">PROJECTS</a>
+      <a href="index.html#experience" class="nav-link">EXPERIENCE</a>
+      <a href="index.html#contact" class="nav-link">CONTACT</a>
+    </nav>
+    <div class="header-status">
+      <span class="status-dot"></span>
+      <span>AVAILABLE</span>
+    </div>
+  </header>
+
+  <!-- ═══ PROJECT HERO ═══ -->
+  <section class="proj-hero">
+    <a href="index.html#portfolio" class="proj-back">← BACK TO PROJECTS</a>
+    <div class="proj-eyebrow">
+      <span class="proj-tag">TRAVEL APP</span>
+      <span>—</span>
+      <span>2018—2022</span>
+    </div>
+    <h1 class="proj-title glitch" data-text="TRAVELLIZY">TRAVELLIZY</h1>
+    <p class="proj-desc">Redesigning the login and&nbsp;signup experience for&nbsp;a travel booking platform — reducing friction, increasing conversions, and&nbsp;making onboarding fast enough to&nbsp;not get in&nbsp;the way.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">ROLE</span>
+        <span class="proj-meta-val">UX/UI DESIGNER</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">PLATFORM</span>
+        <span class="proj-meta-val">WEB · MOBILE</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">COMPANY</span>
+        <span class="proj-meta-val">TRAVELLIZY LP</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">YEAR</span>
+        <span class="proj-meta-val">2018—2022</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COVER ═══ -->
+  <div class="proj-cover reveal">
+    <img src="images/travellizy/cover.png" alt="Travellizy — cover">
+  </div>
+
+  <!-- ═══ 01 — THE CHALLENGE ═══ -->
+  <section class="proj-section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title glitch" data-text="THE CHALLENGE">THE CHALLENGE</h2>
+    </div>
+    <div class="proj-block reveal">
+      <p class="proj-lead">The registration form had <span class="hl">9 required fields</span> — and&nbsp;most users never finished it.</p>
+      <p class="proj-body">Completion took over 2 minutes, with a&nbsp;70% drop&#8209;off rate and&nbsp;a conversion rate sitting at&nbsp;just 2.5%. The&nbsp;platform also needed to&nbsp;collect extra details — phone number, country — without making the form even longer. At the same time, a&nbsp;new social network and&nbsp;travel blog were being added, which required a&nbsp;smoother, faster onboarding path to&nbsp;actually get users in.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 02 — THE SOLUTION ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title glitch" data-text="THE SOLUTION">THE SOLUTION</h2>
+    </div>
+    <div class="proj-block reveal">
+      <p class="proj-lead">Cut the form down to&nbsp;<span class="hl">3 fields</span> and&nbsp;moved everything else out of&nbsp;the way.</p>
+      <p class="proj-body">Email, password, and&nbsp;name — that's it. Country and&nbsp;phone number moved to&nbsp;profile settings. Social login via Google and&nbsp;Facebook gave users an&nbsp;even faster path in. Progressive disclosure ensured extra fields only appeared when actually needed.</p>
+      <div class="proj-sol-grid">
+        <div class="proj-sol-card">
+          <span class="proj-sol-num">CHANGE 01</span>
+          <span class="proj-sol-name">Simplified Form</span>
+          <p>Down from 9 to&nbsp;3 required fields — email, password, name. Secondary data deferred to&nbsp;profile settings</p>
+        </div>
+        <div class="proj-sol-card">
+          <span class="proj-sol-num">CHANGE 02</span>
+          <span class="proj-sol-name">Social Login</span>
+          <p>Google and&nbsp;Facebook login added as&nbsp;fast&#8209;track options, bypassing the form entirely for&nbsp;most users</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 03 — BEFORE & AFTER: LOGIN ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title">BEFORE &amp; AFTER — LOGIN</h2>
+    </div>
+    <div class="proj-screens reveal">
+      <div class="proj-screen">
+        <span class="proj-screen-label">OLD LOG IN FORM</span>
+        <img src="images/travellizy/oldlogin.png" alt="Old Log In Form">
+      </div>
+      <div class="proj-screen">
+        <span class="proj-screen-label">NEW LOG IN FORM</span>
+        <img src="images/travellizy/newlogin.png" alt="New Log In Form">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 — BEFORE & AFTER: SIGN UP ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title">BEFORE &amp; AFTER — SIGN UP</h2>
+    </div>
+    <div class="proj-screens reveal">
+      <div class="proj-screen">
+        <span class="proj-screen-label">OLD SIGN UP FORM</span>
+        <img src="images/travellizy/oldsignup.png" alt="Old Sign Up Form">
+      </div>
+      <div class="proj-screen">
+        <span class="proj-screen-label">NEW SIGN UP FORM</span>
+        <img src="images/travellizy/newsignup.png" alt="New Sign Up Form">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05 — IMPACT ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2 class="section-title glitch" data-text="IMPACT">IMPACT</h2>
+    </div>
+    <div class="proj-impact reveal">
+      <div class="proj-impact-card">
+        <span class="proj-impact-delta">−69%</span>
+        <span class="proj-impact-label">REGISTRATION TIME</span>
+        <p>From <span class="hl">130s</span> to&nbsp;<span class="hl">40s</span> — users complete sign&#8209;up before losing momentum</p>
+      </div>
+      <div class="proj-impact-card">
+        <span class="proj-impact-delta">−45pp</span>
+        <span class="proj-impact-label">DROP&#8209;OFF RATE</span>
+        <p>From <span class="hl">70%</span> to&nbsp;<span class="hl">25%</span> — fewer users abandoning mid&#8209;form</p>
+      </div>
+      <div class="proj-impact-card">
+        <span class="proj-impact-delta">−25pp</span>
+        <span class="proj-impact-label">BOUNCE RATE</span>
+        <p>From <span class="hl">60%</span> to&nbsp;<span class="hl">35%</span> — more users staying after landing</p>
+      </div>
+      <div class="proj-impact-card">
+        <span class="proj-impact-delta">+500%</span>
+        <span class="proj-impact-label">CONVERSION RATE</span>
+        <p>From <span class="hl">2.5%</span> to&nbsp;<span class="hl">15%</span> — six times more sign&#8209;ups</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECT NAV ═══ -->
+  <nav class="proj-nav">
+    <a href="evaryst.html" class="proj-nav-link prev">
+      <span class="proj-nav-dir">← PREVIOUS</span>
+      <span class="proj-nav-name">Evaryst</span>
+    </a>
+    <a href="carforce.html" class="proj-nav-link next">
+      <span class="proj-nav-dir">NEXT →</span>
+      <span class="proj-nav-name">Carforce</span>
+    </a>
+  </nav>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="contact" class="footer">
+    <div class="footer-name-block reveal">
+      <div class="footer-big-name glitch" data-text="MAX VEGERCHUK">MAX VEGERCHUK</div>
+      <p class="footer-sub">UX/UI DESIGNER · BRAȘOV, ROMANIA</p>
+    </div>
+    <div class="footer-cols reveal">
+      <div class="footer-col">
+        <span class="footer-label">// CONTACT</span>
+        <a href="mailto:max.vegerchuk@gmail.com" class="footer-email">max.vegerchuk@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// NAVIGATE</span>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="index.html#portfolio">Projects</a>
+          <a href="index.html#experience">Experience</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// SOCIAL</span>
+        <nav class="footer-nav">
+          <a href="https://www.linkedin.com/in/maxvegerchuk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/max_vegerchuk" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MAX VEGERCHUK</span>
+      <span class="footer-online">UX/UI DESIGN</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const toggle = document.querySelector('.nav-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        header.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', header.classList.contains('nav-open'));
+      });
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.addEventListener('click', () => {
+          header.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carforce — Max Vegerchuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <style>
+    /* ── PROJECT PAGE ──────────────────────────────────────────── */
+    .proj-page { padding-top: 80px; }
+
+    /* ── PROJECT HERO ──────────────────────────────────────────── */
+    .proj-hero {
+      padding: 72px var(--pad) 64px;
+      border-bottom: 1px solid var(--border-y);
+    }
+    .proj-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 44px;
+      transition: color 0.2s;
+    }
+    .proj-back:hover { color: var(--y); }
+    .proj-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .proj-tag { color: var(--p); }
+    .proj-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(52px, 10vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .proj-desc {
+      font-family: var(--body);
+      font-size: clamp(15px, 1.2vw, 18px);
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 52px;
+    }
+    .proj-meta { display: flex; gap: 48px; flex-wrap: wrap; }
+    .proj-meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .proj-meta-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+    .proj-meta-val {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--y);
+    }
+
+    /* ── COVER ─────────────────────────────────────────────────── */
+    .proj-cover { padding: 0 var(--pad); }
+    .proj-cover img {
+      width: 100%;
+      display: block;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, 0 100%);
+    }
+
+    /* ── SECTIONS ──────────────────────────────────────────────── */
+    .proj-section { padding: 80px var(--pad); }
+    .proj-section .section-head { margin-bottom: 48px; }
+    .hl { color: var(--y); }
+
+    /* ── TEXT BLOCKS ───────────────────────────────────────────── */
+    .proj-block { max-width: 760px; }
+    .proj-lead {
+      font-family: var(--body);
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .proj-body {
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    /* ── RESEARCH STATS ────────────────────────────────────────── */
+    .proj-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-bottom: 3px;
+    }
+    .proj-stat-card {
+      background: var(--surface);
+      padding: 28px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+    }
+    .proj-stat-num {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(36px, 4vw, 48px);
+      color: var(--y);
+      line-height: 1;
+    }
+    .proj-stat-topic {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+    .proj-stat-card p {
+      font-family: var(--body);
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+    .proj-stat-insight {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--y);
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+
+    /* ── COMPETITIVE TABLE ─────────────────────────────────────── */
+    .proj-comp-wrap {
+      background: var(--surface);
+      overflow-x: auto;
+    }
+    .proj-comp-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      padding: 16px 24px 14px;
+      border-bottom: 1px solid var(--border-y);
+    }
+    .proj-comp-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .proj-comp-table thead th {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--y);
+      text-align: left;
+      padding: 14px 20px 12px;
+      border-bottom: 1px solid var(--border-y);
+      white-space: nowrap;
+    }
+    .proj-comp-table thead th:first-child {
+      width: 160px;
+    }
+    .proj-comp-table tbody td {
+      font-family: var(--body);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,229,0,0.05);
+      vertical-align: top;
+    }
+    .proj-comp-table tbody td:first-child {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .proj-comp-table tbody tr:last-child td { border-bottom: none; }
+    .proj-comp-table tbody tr:hover td { background: var(--surface2); }
+
+    /* ── SUBSECTION LABEL ──────────────────────────────────────── */
+    .proj-sub-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--p);
+      margin-bottom: 16px;
+    }
+
+    /* ── PERSONA ───────────────────────────────────────────────── */
+    .proj-persona {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3px;
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+    .proj-persona-info {
+      background: var(--surface);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .proj-persona-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--y);
+    }
+    .proj-persona-row {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .proj-persona-row b { color: var(--text); font-weight: 400; }
+    .proj-persona-detail {
+      background: var(--surface);
+      padding: 28px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+    }
+    .proj-persona-quote {
+      font-family: var(--body);
+      font-size: clamp(14px, 1.2vw, 17px);
+      line-height: 1.7;
+      color: var(--text);
+      font-style: italic;
+    }
+    .proj-persona-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .proj-persona-col-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--p);
+      margin-bottom: 10px;
+    }
+    .proj-persona-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .proj-persona-list li {
+      font-family: var(--body);
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .proj-persona-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--y);
+      opacity: 0.4;
+      font-family: var(--mono);
+    }
+
+    /* ── MOSCOW ────────────────────────────────────────────────── */
+    .proj-moscow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+    .proj-moscow-col {
+      background: var(--surface);
+      padding: 24px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .proj-moscow-col:last-child {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+    }
+    .proj-moscow-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--y);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .proj-moscow-sub {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .proj-moscow-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .proj-moscow-list li {
+      font-family: var(--body);
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+      padding-left: 14px;
+      position: relative;
+    }
+    .proj-moscow-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--y);
+      opacity: 0.35;
+      font-family: var(--mono);
+    }
+    .proj-moscow-col.dim .proj-moscow-list li,
+    .proj-moscow-col.dim .proj-moscow-label { opacity: 0.45; }
+
+    /* ── PROCESS SCREENS ───────────────────────────────────────── */
+    .proj-process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .proj-screen {
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+    }
+    .proj-screen-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      padding: 14px 20px 12px;
+      border-bottom: 1px solid var(--border-y);
+    }
+    .proj-screen img { width: 100%; display: block; object-fit: cover; }
+
+    /* ── FEATURE LAYOUT (text + screenshot) ───────────────────── */
+    .proj-feature {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3px;
+      margin-bottom: 3px;
+      align-items: stretch;
+    }
+    .proj-feature-text {
+      background: var(--surface);
+      padding: 36px 32px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .proj-feature-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--p);
+    }
+    .proj-feature-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(13px, 1.4vw, 18px);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--y);
+    }
+    .proj-feature-text p {
+      font-family: var(--body);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin: 0;
+    }
+    .proj-feature-img {
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+    }
+    .proj-feature-img img {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .proj-feature-img.full {
+      padding: 0;
+      display: block;
+    }
+    .proj-feature-img.full img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* ── FINAL DESIGN ──────────────────────────────────────────── */
+    .proj-final { padding: 0 var(--pad); margin-top: 3px; }
+    .proj-final-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 0 0 20px;
+    }
+    .proj-final-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: var(--p);
+    }
+    .proj-final-desc {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .proj-final img {
+      width: 100%;
+      display: block;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, 0 100%);
+    }
+
+    /* ── PROJECT NAV ───────────────────────────────────────────── */
+    .proj-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 56px var(--pad);
+      border-top: 1px solid var(--border-y);
+    }
+    .proj-nav-link { display: flex; flex-direction: column; gap: 6px; transition: opacity 0.2s; }
+    .proj-nav-link.next { align-items: flex-end; }
+    .proj-nav-link:hover { opacity: 0.8; }
+    .proj-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); }
+    .proj-nav-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(16px, 2.2vw, 28px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .proj-nav-link:hover .proj-nav-name { color: var(--y); }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .proj-stat-grid   { grid-template-columns: 1fr 1fr; }
+      .proj-persona     { grid-template-columns: 1fr; }
+      .proj-persona-cols { grid-template-columns: 1fr; gap: 16px; }
+      .proj-moscow      { grid-template-columns: 1fr 1fr; }
+      .proj-process     { grid-template-columns: 1fr; }
+      .proj-feature     { grid-template-columns: 1fr; }
+      .proj-feature-img { min-height: 220px; }
+      .proj-meta        { gap: 28px; }
+      .proj-nav         { flex-direction: column; gap: 36px; align-items: flex-start; }
+      .proj-nav-link.next { align-items: flex-start; }
+    }
+    @media (max-width: 440px) {
+      .proj-hero    { padding: 56px var(--pad) 48px; }
+      .proj-section { padding: 56px var(--pad); }
+      .proj-stat-grid { grid-template-columns: 1fr; }
+      .proj-moscow    { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="proj-page">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header" id="header">
+    <a href="index.html" class="logo">
+      <span class="logo-first">MAX</span><span class="logo-dot">.</span><span class="logo-last">VGR</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="index.html#portfolio" class="nav-link">PROJECTS</a>
+      <a href="index.html#experience" class="nav-link">EXPERIENCE</a>
+      <a href="index.html#contact" class="nav-link">CONTACT</a>
+    </nav>
+    <div class="header-status">
+      <span class="status-dot"></span>
+      <span>AVAILABLE</span>
+    </div>
+  </header>
+
+  <!-- ═══ PROJECT HERO ═══ -->
+  <section class="proj-hero">
+    <a href="index.html#portfolio" class="proj-back">← BACK TO PROJECTS</a>
+    <div class="proj-eyebrow">
+      <span class="proj-tag">E-COMMERCE</span>
+      <span>—</span>
+      <span>2022</span>
+    </div>
+    <h1 class="proj-title glitch" data-text="CARFORCE">CARFORCE</h1>
+    <p class="proj-desc">Designing an&nbsp;independent auto parts platform to&nbsp;eliminate eBay dependency, reduce fees, and&nbsp;give the business direct control over pricing and&nbsp;customer relationships.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">ROLE</span>
+        <span class="proj-meta-val">UX/UI DESIGNER</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">PLATFORM</span>
+        <span class="proj-meta-val">WEB · MOBILE</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">INDUSTRY</span>
+        <span class="proj-meta-val">AUTO PARTS</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">YEAR</span>
+        <span class="proj-meta-val">2022</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COVER ═══ -->
+  <div class="proj-cover reveal">
+    <img src="images/carforce/cover.png" alt="Carforce — cover">
+  </div>
+
+  <!-- ═══ 01 — THE PROBLEM ═══ -->
+  <section class="proj-section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title glitch" data-text="THE PROBLEM">THE PROBLEM</h2>
+    </div>
+    <div class="proj-block reveal">
+      <p class="proj-lead">A private auto parts business was entirely dependent on&nbsp;eBay — paying high fees with no&nbsp;control over pricing or&nbsp;customer relationships.</p>
+      <p class="proj-body">Platform limitations were blocking growth at&nbsp;every level: commission fees ate into margins, seller rules constrained how products could be&nbsp;presented, and&nbsp;there was no&nbsp;direct path to&nbsp;customer loyalty. The&nbsp;goal was to&nbsp;build an&nbsp;owned e&#8209;commerce platform — with transparent pricing, a&nbsp;compatibility checker, and&nbsp;a direct connection to&nbsp;buyers.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 02 — RESEARCH ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title glitch" data-text="RESEARCH">RESEARCH</h2>
+    </div>
+    <div class="proj-stat-grid reveal">
+      <div class="proj-stat-card">
+        <span class="proj-stat-num">65%</span>
+        <span class="proj-stat-topic">Platform Challenges</span>
+        <p>Users face high fees on&nbsp;platforms like eBay and&nbsp;want to&nbsp;reduce reliance on&nbsp;third parties.</p>
+        <span class="proj-stat-insight">→ Lower costs drive platform switching</span>
+      </div>
+      <div class="proj-stat-card">
+        <span class="proj-stat-num">80%</span>
+        <span class="proj-stat-topic">Transparent Pricing</span>
+        <p>Want clear pricing and&nbsp;shipping details upfront before committing to&nbsp;a purchase.</p>
+        <span class="proj-stat-insight">→ Upfront pricing builds trust</span>
+      </div>
+      <div class="proj-stat-card">
+        <span class="proj-stat-num">60%</span>
+        <span class="proj-stat-topic">New &amp; Used Parts</span>
+        <p>Prefer platforms that carry both new and&nbsp;used options to&nbsp;meet different budget needs.</p>
+        <span class="proj-stat-insight">→ Flexible inventory for diverse needs</span>
+      </div>
+      <div class="proj-stat-card">
+        <span class="proj-stat-num">75%</span>
+        <span class="proj-stat-topic">Search &amp; Filters</span>
+        <p>Consider advanced search and&nbsp;filter functions crucial to&nbsp;finding the right part quickly.</p>
+        <span class="proj-stat-insight">→ Detailed filters are key to&nbsp;usability</span>
+      </div>
+      <div class="proj-stat-card">
+        <span class="proj-stat-num">70%</span>
+        <span class="proj-stat-topic">Mobile App</span>
+        <p>Favor a&nbsp;mobile app for easy access to&nbsp;parts search and&nbsp;order tracking on&nbsp;the go.</p>
+        <span class="proj-stat-insight">→ Mobile&#8209;first approach is essential</span>
+      </div>
+      <div class="proj-stat-card">
+        <span class="proj-stat-num">55%</span>
+        <span class="proj-stat-topic">Platform Switching</span>
+        <p>Would switch to&nbsp;a new platform for lower fees and&nbsp;better filters if&nbsp;the UX is competitive.</p>
+        <span class="proj-stat-insight">→ Pricing + UX drives adoption</span>
+      </div>
+    </div>
+
+    <div class="proj-comp-wrap reveal">
+      <span class="proj-comp-label">// COMPETITIVE ANALYSIS</span>
+      <table class="proj-comp-table">
+        <thead>
+          <tr>
+            <th>COMPETITOR</th>
+            <th>STRENGTHS</th>
+            <th>WEAKNESSES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rock Auto</td>
+            <td>Extensive inventory · Competitive pricing · User&#8209;friendly website</td>
+            <td>Limited customer service · No&nbsp;loyalty program</td>
+          </tr>
+          <tr>
+            <td>PartsMarket</td>
+            <td>Verified sellers · Emphasis on&nbsp;quality parts · Easy&#8209;to&#8209;navigate platform</td>
+            <td>Limited customer service · No&nbsp;loyalty program</td>
+          </tr>
+          <tr>
+            <td>Car&#8209;Part.com</td>
+            <td>Vast network · Advanced search filters · Large database of&nbsp;parts</td>
+            <td>Dated website design · Poor navigation</td>
+          </tr>
+          <tr>
+            <td>NAPA Auto Parts</td>
+            <td>Strong brand recognition · Wide range of&nbsp;parts · Established physical presence</td>
+            <td>Higher prices · Less focus on&nbsp;online experience</td>
+          </tr>
+          <tr>
+            <td>O'Reilly Auto Parts</td>
+            <td>Excellent customer service · Online and&nbsp;offline presence · Loyalty programs</td>
+            <td>Higher costs in&nbsp;some regions · Slower online experience</td>
+          </tr>
+          <tr>
+            <td>CARID</td>
+            <td>Wide range of&nbsp;premium parts · Superior customer service · Intuitive website</td>
+            <td>Higher cost for products · Shipping can be&nbsp;slow</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ 03 — DEFINE ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title">DEFINE</h2>
+    </div>
+
+    <p class="proj-sub-label reveal">USER PERSONA</p>
+    <div class="proj-persona reveal">
+      <div class="proj-persona-info">
+        <span class="proj-persona-name">Michael Johnson</span>
+        <div class="proj-persona-row">
+          AGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>34</b><br>
+          JOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Auto repair technician</b><br>
+          AREA&nbsp;&nbsp;&nbsp;&nbsp;<b>Suburban area</b><br>
+          EXP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>10&nbsp;yrs automotive repair</b>
+        </div>
+      </div>
+      <div class="proj-persona-detail">
+        <p class="proj-persona-quote">"I need to&nbsp;keep my repair costs low, but current platforms are failing me on&nbsp;transparent pricing and&nbsp;part compatibility."</p>
+        <div class="proj-persona-cols">
+          <div>
+            <div class="proj-persona-col-label">GOALS</div>
+            <ul class="proj-persona-list">
+              <li>Find affordable auto parts quickly</li>
+              <li>Minimize costs associated with repairs</li>
+            </ul>
+          </div>
+          <div>
+            <div class="proj-persona-col-label">CHALLENGES</div>
+            <ul class="proj-persona-list">
+              <li>High fees and&nbsp;hidden costs on&nbsp;current platforms</li>
+              <li>Limited part compatibility information</li>
+              <li>Lack of&nbsp;transparent pricing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-moscow reveal">
+      <div class="proj-moscow-col">
+        <div class="proj-moscow-label">Must Have</div>
+        <div class="proj-moscow-sub">Necessary for product</div>
+        <ul class="proj-moscow-list">
+          <li>Transparent Pricing</li>
+          <li>Advanced Search &amp; Filters</li>
+          <li>New and&nbsp;Used Parts support</li>
+          <li>Mobile Access</li>
+          <li>User&#8209;Friendly Interface</li>
+        </ul>
+      </div>
+      <div class="proj-moscow-col">
+        <div class="proj-moscow-label">Should Have</div>
+        <div class="proj-moscow-sub">Significant in&nbsp;the long run</div>
+        <ul class="proj-moscow-list">
+          <li>Improved Customer Support</li>
+          <li>Personalized Recommendations</li>
+          <li>User Reviews</li>
+          <li>Part Compatibility Check</li>
+          <li>Loyalty Pricing</li>
+        </ul>
+      </div>
+      <div class="proj-moscow-col dim">
+        <div class="proj-moscow-label">Could Have</div>
+        <div class="proj-moscow-sub">Slightly increases value</div>
+        <ul class="proj-moscow-list">
+          <li>Social Media Integration</li>
+          <li>3D Part Viewer</li>
+          <li>Marketplace Price Comparison</li>
+        </ul>
+      </div>
+      <div class="proj-moscow-col dim">
+        <div class="proj-moscow-label">Won't Have</div>
+        <div class="proj-moscow-sub">Can be ignored for now</div>
+        <ul class="proj-moscow-list">
+          <li>Vehicle Service Booking</li>
+          <li>Parts Rental Option</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 — PROCESS ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title">PROCESS</h2>
+    </div>
+    <div class="proj-process reveal">
+      <div class="proj-screen">
+        <span class="proj-screen-label">LOW&#8209;FI WIREFRAMING</span>
+        <img src="images/carforce/low-fi.jpg" alt="Low-Fi Wireframing">
+      </div>
+      <div class="proj-screen">
+        <span class="proj-screen-label">LOGO DESIGN</span>
+        <img src="images/carforce/logo.jpg" alt="Logo Design">
+      </div>
+      <div class="proj-screen">
+        <span class="proj-screen-label">UI KIT</span>
+        <img src="images/carforce/uikit.jpg" alt="UI Kit">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05 — THE SOLUTION ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2 class="section-title glitch" data-text="THE SOLUTION">THE SOLUTION</h2>
+    </div>
+
+    <div class="proj-feature reveal">
+      <div class="proj-feature-text">
+        <span class="proj-feature-num">FEATURE 01</span>
+        <span class="proj-feature-name">Compatibility Checker</span>
+        <p>Select your car's year, make, and&nbsp;model — the platform instantly filters to&nbsp;show only compatible parts. Eliminates guesswork and&nbsp;reduces the risk of&nbsp;ordering the wrong part.</p>
+      </div>
+      <div class="proj-feature-img">
+        <img src="images/carforce/checktool.jpg" alt="Compatibility Checker">
+      </div>
+    </div>
+
+    <div class="proj-feature reveal">
+      <div class="proj-feature-text">
+        <span class="proj-feature-num">FEATURE 02</span>
+        <span class="proj-feature-name">Advanced Search &amp; Filters</span>
+        <p>Multi&#8209;layered filters by&nbsp;part type, condition, price range, and&nbsp;brand. Users can refine results to&nbsp;exactly what they need without scrolling through irrelevant inventory.</p>
+      </div>
+      <div class="proj-feature-img">
+        <img src="images/carforce/search-filters.png" alt="Advanced Search and Filters">
+      </div>
+    </div>
+
+    <div class="proj-feature reveal">
+      <div class="proj-feature-text">
+        <span class="proj-feature-num">FEATURE 03</span>
+        <span class="proj-feature-name">Transparent Pricing</span>
+        <p>Shipping costs, return policy, and&nbsp;full cost breakdown are visible on&nbsp;every product page — before the user commits. No&nbsp;hidden fees, no&nbsp;surprises at&nbsp;checkout.</p>
+      </div>
+      <div class="proj-feature-img">
+        <img src="images/carforce/Shipping&amp;Return.jpg" alt="Transparent Pricing">
+      </div>
+    </div>
+
+    <div class="proj-feature reveal">
+      <div class="proj-feature-text">
+        <span class="proj-feature-num">FEATURE 04</span>
+        <span class="proj-feature-name">Checkout Flow</span>
+        <p>Order review, shipping details, and&nbsp;payment method on&nbsp;a single streamlined screen. Cart summary keeps totals visible throughout — reducing drop&#8209;off at&nbsp;the final step.</p>
+      </div>
+      <div class="proj-feature-img">
+        <img src="images/carforce/Checkout.jpg" alt="Checkout">
+      </div>
+    </div>
+
+    <div class="proj-feature reveal">
+      <div class="proj-feature-text">
+        <span class="proj-feature-num">FEATURE 05</span>
+        <span class="proj-feature-name">24/7 Support Chatbot</span>
+        <p>Instant assistance for common inquiries, product guidance, and&nbsp;order navigation — available around the clock. Reduces support load while keeping buyers moving through the funnel.</p>
+      </div>
+      <div class="proj-feature-img full">
+        <img src="images/carforce/chatbot.png" alt="Support Chatbot">
+      </div>
+    </div>
+
+    <div class="proj-final reveal">
+      <div class="proj-final-header">
+        <span class="proj-final-tag">FINAL DESIGN</span>
+        <span class="proj-final-desc">// Complete UI screen set — product pages, checkout flow, mobile views, and&nbsp;core platform screens</span>
+      </div>
+      <img src="images/carforce/finaldesign.png" alt="Final Design — complete UI screen set">
+    </div>
+  </section>
+
+  <!-- ═══ 06 — KEY LEARNINGS ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2 class="section-title">KEY LEARNINGS</h2>
+    </div>
+    <div class="proj-block reveal">
+      <p class="proj-lead">User research shaped every decision — not business assumptions.</p>
+      <p class="proj-body">The advanced search, compatibility tool, and&nbsp;transparent pricing directly addressed the pain points users reported. Adding user reviews and&nbsp;personalized vehicle profiles came from research findings, not gut instinct. The&nbsp;biggest takeaway: when you design around real friction, the solutions are simpler and&nbsp;more effective than expected.</p>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECT NAV ═══ -->
+  <nav class="proj-nav">
+    <a href="travellizy.html" class="proj-nav-link prev">
+      <span class="proj-nav-dir">← PREVIOUS</span>
+      <span class="proj-nav-name">Travellizy</span>
+    </a>
+    <a href="evaryst.html" class="proj-nav-link next">
+      <span class="proj-nav-dir">NEXT →</span>
+      <span class="proj-nav-name">Evaryst</span>
+    </a>
+  </nav>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="contact" class="footer">
+    <div class="footer-name-block reveal">
+      <div class="footer-big-name glitch" data-text="MAX VEGERCHUK">MAX VEGERCHUK</div>
+      <p class="footer-sub">UX/UI DESIGNER · BRAȘOV, ROMANIA</p>
+    </div>
+    <div class="footer-cols reveal">
+      <div class="footer-col">
+        <span class="footer-label">// CONTACT</span>
+        <a href="mailto:max.vegerchuk@gmail.com" class="footer-email">max.vegerchuk@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// NAVIGATE</span>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="index.html#portfolio">Projects</a>
+          <a href="index.html#experience">Experience</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// SOCIAL</span>
+        <nav class="footer-nav">
+          <a href="https://www.linkedin.com/in/maxvegerchuk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/max_vegerchuk" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MAX VEGERCHUK</span>
+      <span class="footer-online">UX/UI DESIGN</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const toggle = document.querySelector('.nav-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        header.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', header.classList.contains('nav-open'));
+      });
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.addEventListener('click', () => {
+          header.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

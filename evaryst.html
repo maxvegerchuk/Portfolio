@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaryst — Max Vegerchuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cyberpunk.css">
+  <style>
+    /* ── PROJECT PAGE ──────────────────────────────────────────── */
+    .proj-page { padding-top: 80px; }
+
+    /* ── PROJECT HERO ──────────────────────────────────────────── */
+    .proj-hero {
+      padding: 72px var(--pad) 64px;
+      border-bottom: 1px solid var(--border-y);
+      position: relative;
+    }
+    .proj-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 44px;
+      transition: color 0.2s;
+    }
+    .proj-back:hover { color: var(--y); }
+    .proj-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .proj-tag { color: var(--p); }
+    .proj-title {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(52px, 10vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .proj-desc {
+      font-family: var(--body);
+      font-size: clamp(15px, 1.2vw, 18px);
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 52px;
+    }
+    .proj-meta {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .proj-meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .proj-meta-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+    .proj-meta-val {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--y);
+    }
+
+    /* ── COVER ─────────────────────────────────────────────────── */
+    .proj-cover {
+      padding: 0 var(--pad);
+    }
+    .proj-cover img {
+      width: 100%;
+      display: block;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-lg)), calc(100% - var(--cut-lg)) 100%, 0 100%);
+    }
+
+    /* ── SHARED SECTION OVERRIDE ───────────────────────────────── */
+    .proj-section { padding: 80px var(--pad); }
+    .proj-section .section-head { margin-bottom: 48px; }
+
+    /* ── HIGHLIGHT ─────────────────────────────────────────────── */
+    .hl { color: var(--y); }
+
+    /* ── TEXT BLOCKS ───────────────────────────────────────────── */
+    .proj-block { max-width: 760px; }
+    .proj-lead {
+      font-family: var(--body);
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .proj-body {
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    /* ── SOLUTION CARDS ────────────────────────────────────────── */
+    .proj-flow-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 36px;
+      max-width: 760px;
+    }
+    .proj-flow-card {
+      background: var(--surface);
+      padding: 28px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+    }
+    .proj-flow-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--p);
+    }
+    .proj-flow-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--y);
+    }
+    .proj-flow-card p {
+      font-family: var(--body);
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── JTBD BLOCK ────────────────────────────────────────────── */
+    .proj-jtbd {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 24px 28px;
+      border-left: 2px solid var(--y);
+      background: var(--surface);
+      margin-bottom: 36px;
+      max-width: 760px;
+    }
+    .proj-jtbd-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--y);
+      opacity: 0.55;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+    .proj-jtbd p {
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      margin: 0;
+    }
+
+    /* ── FLOW CHART ────────────────────────────────────────────── */
+    .flow-chart {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px 2px;
+      padding: 0 0 28px;
+      margin-bottom: 36px;
+    }
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .flow-screen {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    /* Wrapper creates the 1px angular border (same trick as ghost button) */
+    .flow-act-wrap {
+      display: inline-block;
+      padding: 1px;
+      background: rgba(255,229,0,0.35);
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%);
+    }
+    .flow-action {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      background: var(--bg);
+      padding: 7px 14px;
+      white-space: nowrap;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%);
+    }
+    .flow-arr {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: rgba(255,229,0,0.35);
+      padding: 0 4px 9px;
+      line-height: 1;
+    }
+
+    /* ── SCREENS ───────────────────────────────────────────────── */
+    .proj-screens {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-bottom: 3px;
+    }
+    .proj-screen {
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+    }
+    .proj-screen-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      padding: 14px 20px 12px;
+      border-bottom: 1px solid var(--border-y);
+    }
+    .proj-screen img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── IMPACT GRID ───────────────────────────────────────────── */
+    .proj-impact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .proj-impact-card {
+      background: var(--surface);
+      padding: 32px 28px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .proj-impact-mark {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--y);
+    }
+    .proj-impact-card p {
+      font-family: var(--body);
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── PROJECT NAV ───────────────────────────────────────────── */
+    .proj-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 56px var(--pad);
+      border-top: 1px solid var(--border-y);
+    }
+    .proj-nav-link {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    .proj-nav-link.next { align-items: flex-end; }
+    .proj-nav-link:hover { opacity: 0.8; }
+    .proj-nav-dir {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .proj-nav-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(16px, 2.2vw, 28px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .proj-nav-link:hover .proj-nav-name { color: var(--y); }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .proj-flow-intro  { grid-template-columns: 1fr; }
+      .proj-screens     { grid-template-columns: 1fr; }
+      .proj-impact      { grid-template-columns: 1fr; }
+      .proj-meta        { gap: 28px; }
+      .proj-jtbd        { flex-direction: column; gap: 10px; }
+      .proj-nav         { flex-direction: column; gap: 36px; align-items: flex-start; }
+      .proj-nav-link.next { align-items: flex-start; }
+    }
+    @media (max-width: 440px) {
+      .proj-hero { padding: 56px var(--pad) 48px; }
+      .proj-section { padding: 56px var(--pad); }
+    }
+  </style>
+</head>
+<body class="proj-page">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header" id="header">
+    <a href="index.html" class="logo">
+      <span class="logo-first">MAX</span><span class="logo-dot">.</span><span class="logo-last">VGR</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="index.html#portfolio" class="nav-link">PROJECTS</a>
+      <a href="index.html#experience" class="nav-link">EXPERIENCE</a>
+      <a href="index.html#contact" class="nav-link">CONTACT</a>
+    </nav>
+    <div class="header-status">
+      <span class="status-dot"></span>
+      <span>AVAILABLE</span>
+    </div>
+  </header>
+
+  <!-- ═══ PROJECT HERO ═══ -->
+  <section class="proj-hero">
+    <a href="index.html#portfolio" class="proj-back">← BACK TO PROJECTS</a>
+    <div class="proj-eyebrow">
+      <span class="proj-tag">ATS PLATFORM</span>
+      <span>—</span>
+      <span>2025</span>
+    </div>
+    <h1 class="proj-title glitch" data-text="EVARYST">EVARYST</h1>
+    <p class="proj-desc">Redesigning the core workflows of&nbsp;an applicant tracking system — helping recruiting teams manage accounts, balance workloads, and&nbsp;capture candidates faster.</p>
+    <div class="proj-meta">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">ROLE</span>
+        <span class="proj-meta-val">UX/UI DESIGNER</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">PLATFORM</span>
+        <span class="proj-meta-val">WEB APP</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">COMPANY</span>
+        <span class="proj-meta-val">ARLENSA</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">YEAR</span>
+        <span class="proj-meta-val">2025</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COVER ═══ -->
+  <div class="proj-cover reveal">
+    <img src="images/evaryst/cover.png" alt="Evaryst — cover">
+  </div>
+
+  <!-- ═══ 01 — THE CHALLENGE ═══ -->
+  <section class="proj-section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title glitch" data-text="THE CHALLENGE">THE CHALLENGE</h2>
+    </div>
+    <div class="proj-block reveal">
+      <p class="proj-lead">Recruiters had <span class="hl">no central system</span> — accounts, workloads, and&nbsp;candidates were managed across disconnected tools.</p>
+      <p class="proj-body">The result: teams lost visibility into who owned which account, work got duplicated, and&nbsp;the hiring pipeline slowed down at&nbsp;every stage.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 02 — THE SOLUTION ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title glitch" data-text="THE SOLUTION">THE SOLUTION</h2>
+    </div>
+    <div class="proj-block reveal">
+      <p class="proj-lead">Redesigned <span class="hl">two core ATS workflows</span> that directly affect team speed and clarity:</p>
+      <div class="proj-flow-intro">
+        <div class="proj-flow-card">
+          <span class="proj-flow-num">FLOW 01</span>
+          <span class="proj-flow-name">Company Management</span>
+          <p>Create accounts and&nbsp;assign them to&nbsp;the right recruiters</p>
+        </div>
+        <div class="proj-flow-card">
+          <span class="proj-flow-num">FLOW 02</span>
+          <span class="proj-flow-name">Candidate Pipeline</span>
+          <p>Add candidates via manual entry or&nbsp;resume import</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 03 — FLOW 01: COMPANIES ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title">FLOW 01 — COMPANIES</h2>
+    </div>
+    <div class="proj-jtbd reveal">
+      <span class="proj-jtbd-tag">JTBD</span>
+      <p>Create and&nbsp;assign companies to&nbsp;recruiters — giving the team <span class="hl">clear ownership</span> over accounts and&nbsp;control over who manages what.</p>
+    </div>
+    <div class="flow-chart reveal">
+      <div class="flow-node">
+        <span class="flow-screen">companies_page</span>
+        <span class="flow-act-wrap"><span class="flow-action">Add Company</span></span>
+      </div>
+      <span class="flow-arr" aria-hidden="true">→</span>
+      <div class="flow-node">
+        <span class="flow-screen">create_company_modal</span>
+        <span class="flow-act-wrap"><span class="flow-action">Save Company</span></span>
+      </div>
+      <span class="flow-arr" aria-hidden="true">→</span>
+      <div class="flow-node">
+        <span class="flow-screen">company_detail_page</span>
+        <span class="flow-act-wrap"><span class="flow-action">Add Job Opening</span></span>
+      </div>
+      <span class="flow-arr" aria-hidden="true">→</span>
+      <div class="flow-node">
+        <span class="flow-screen">job_opening_detail</span>
+        <span class="flow-act-wrap"><span class="flow-action">Assign Recruiter</span></span>
+      </div>
+      <span class="flow-arr" aria-hidden="true">→</span>
+      <div class="flow-node">
+        <span class="flow-screen">assign_recruiter_page</span>
+        <span class="flow-act-wrap"><span class="flow-action">Confirm Assignment</span></span>
+      </div>
+    </div>
+    <div class="proj-screens reveal">
+      <div class="proj-screen">
+        <span class="proj-screen-label">COMPANIES PAGE</span>
+        <img src="images/evaryst/companies-page.png" alt="Companies Page">
+      </div>
+      <div class="proj-screen">
+        <span class="proj-screen-label">ADD NEW COMPANY</span>
+        <img src="images/evaryst/create-company-modal.png" alt="Add New Company">
+      </div>
+    </div>
+    <div class="proj-screens reveal">
+      <div class="proj-screen">
+        <span class="proj-screen-label">COMPANY DETAILS</span>
+        <img src="images/evaryst/company-detail-page.png" alt="Company Details Page">
+      </div>
+      <div class="proj-screen">
+        <span class="proj-screen-label">ASSIGN RECRUITER</span>
+        <img src="images/evaryst/add-recruiter.png" alt="Assign Recruiter">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04 — FLOW 02: CANDIDATES ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title">FLOW 02 — CANDIDATES</h2>
+    </div>
+    <div class="proj-jtbd reveal">
+      <span class="proj-jtbd-tag">JTBD</span>
+      <p>Add new candidates to&nbsp;the pipeline — quickly, through <span class="hl">manual entry or&nbsp;resume import</span>, keeping the hiring funnel complete.</p>
+    </div>
+    <div class="flow-chart reveal">
+      <div class="flow-node">
+        <span class="flow-screen">candidates_page</span>
+        <span class="flow-act-wrap"><span class="flow-action">Add New Candidate</span></span>
+      </div>
+      <span class="flow-arr" aria-hidden="true">→</span>
+      <div class="flow-node">
+        <span class="flow-screen">add_candidate_modal</span>
+        <span class="flow-act-wrap"><span class="flow-action">Add Candidate / Import Resume</span></span>
+      </div>
+    </div>
+    <div class="proj-screens reveal">
+      <div class="proj-screen">
+        <span class="proj-screen-label">CANDIDATES LIST</span>
+        <img src="images/evaryst/candiates-page.png" alt="Candidates List">
+      </div>
+      <div class="proj-screen">
+        <span class="proj-screen-label">ADD CANDIDATE</span>
+        <img src="images/evaryst/add-candidate.png" alt="Add Candidate">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05 — IMPACT ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2 class="section-title glitch" data-text="IMPACT">IMPACT</h2>
+    </div>
+    <div class="proj-impact reveal">
+      <div class="proj-impact-card">
+        <span class="proj-impact-mark">▲ STRUCTURE</span>
+        <p>Clearer <span class="hl">team accountability</span> — managers can see who owns what account and&nbsp;rebalance workloads in&nbsp;seconds</p>
+      </div>
+      <div class="proj-impact-card">
+        <span class="proj-impact-mark">▲ SPEED</span>
+        <p>Faster <span class="hl">candidate intake</span> — resume import cut manual data entry significantly</p>
+      </div>
+      <div class="proj-impact-card">
+        <span class="proj-impact-mark">▲ USABILITY</span>
+        <p><span class="hl">Overall system usability improved</span> based on&nbsp;internal team testing and&nbsp;feedback</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 06 — CHALLENGES ═══ -->
+  <section class="proj-section" style="padding-top:0">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2 class="section-title">CHALLENGES</h2>
+    </div>
+    <div class="proj-block reveal">
+      <p class="proj-lead">Building from scratch with <span class="hl">no legacy user data</span>.</p>
+      <p class="proj-body">We validated every decision using the <span class="hl">Jobs to Be Done framework</span>, insights from our internal recruiting team, and&nbsp;competitive analysis of&nbsp;established tools like <span class="hl">Greenhouse</span>. JTBD kept us grounded in&nbsp;real recruiter needs rather than&nbsp;internal assumptions.</p>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECT NAV ═══ -->
+  <nav class="proj-nav">
+    <a href="carforce.html" class="proj-nav-link prev">
+      <span class="proj-nav-dir">← PREVIOUS</span>
+      <span class="proj-nav-name">Carforce</span>
+    </a>
+    <a href="travellizy.html" class="proj-nav-link next">
+      <span class="proj-nav-dir">NEXT →</span>
+      <span class="proj-nav-name">Travellizy</span>
+    </a>
+  </nav>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="contact" class="footer">
+    <div class="footer-name-block reveal">
+      <div class="footer-big-name glitch" data-text="MAX VEGERCHUK">MAX VEGERCHUK</div>
+      <p class="footer-sub">UX/UI DESIGNER · BRAȘOV, ROMANIA</p>
+    </div>
+    <div class="footer-cols reveal">
+      <div class="footer-col">
+        <span class="footer-label">// CONTACT</span>
+        <a href="mailto:max.vegerchuk@gmail.com" class="footer-email">max.vegerchuk@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// NAVIGATE</span>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="index.html#portfolio">Projects</a>
+          <a href="index.html#experience">Experience</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <span class="footer-label">// SOCIAL</span>
+        <nav class="footer-nav">
+          <a href="https://www.linkedin.com/in/maxvegerchuk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/max_vegerchuk" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MAX VEGERCHUK</span>
+      <span class="footer-online">UX/UI DESIGN</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const toggle = document.querySelector('.nav-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        header.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', header.classList.contains('nav-open'));
+      });
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.addEventListener('click', () => {
+          header.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
