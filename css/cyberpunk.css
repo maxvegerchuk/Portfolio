@@ -198,6 +198,17 @@ span.glitch { display: inline-block; }
   overflow: hidden;
 }
 
+/* Background illustration */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../images/hero-bg.jpg') center right / cover no-repeat;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Left yellow accent bar */
 .hero::before {
   content: '';
